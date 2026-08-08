@@ -1,1 +1,571 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herve Clermont — Actor · Voice Over · Speaker · Host · Brand Ambassador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14100d;
+    --panel:#1d1712;
+    --panel-line: rgba(184,147,90,0.18);
+    --brass:#b8935a;
+    --brass-bright:#d9b57e;
+    --cognac:#7a2e2e;
+    --cream:#ede6da;
+    --muted:#93876f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    padding:0 28px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:920px;
+    margin:0 auto;
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 260px;
+    gap:48px;
+    align-items:center;
+    z-index:1;
+  }
+  @media(max-width:760px){
+    .hero-inner{grid-template-columns:1fr; }
+    .hero-photo{order:-1; width:140px; margin-bottom:8px;}
+  }
+  .hero-photo{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid var(--brass);
+    box-shadow:0 0 0 10px rgba(184,147,90,0.06), 0 0 60px rgba(184,147,90,0.15);
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .spotlight{
+    position:absolute;
+    top:-20%;
+    left:50%;
+    transform:translateX(-50%);
+    width:1100px;
+    height:1100px;
+    background:radial-gradient(circle, rgba(184,147,90,0.16) 0%, rgba(184,147,90,0.05) 35%, rgba(20,16,13,0) 65%);
+    pointer-events:none;
+    animation:flicker 8s ease-in-out infinite;
+  }
+  @keyframes flicker{
+    0%,100%{opacity:1;}
+    50%{opacity:0.85;}
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(48px, 8vw, 92px);
+    line-height:0.98;
+    letter-spacing:-0.01em;
+  }
+  .hero-role{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(17px, 2.2vw, 23px);
+    color:var(--muted);
+    margin-top:18px;
+  }
+  .hero-meta{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .hero-meta span{color:var(--brass-bright); margin-right:6px;}
+
+  /* soundwave rule, used as section divider motif */
+  .wave-rule{
+    display:flex;
+    align-items:flex-end;
+    gap:3px;
+    height:20px;
+    margin:0 0 0 0;
+  }
+  .wave-rule i{
+    display:block;
+    width:3px;
+    background:var(--brass);
+    opacity:0.7;
+  }
+
+  section{padding:96px 0;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:18px;
+    margin-bottom:44px;
+  }
+  .section-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--brass);
+    font-size:16px;
+  }
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(30px, 4vw, 42px);
+  }
+  .lede{
+    max-width:640px;
+    color:var(--cream);
+    font-size:18px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{border-top:1px solid var(--panel-line);}
+  .about p{max-width:620px; font-size:18px; color:#d9d0c1;}
+
+  /* ---------- HIGHLIGHTS (playbill style) ---------- */
+  .credits{border-top:1px solid var(--panel-line);}
+  .credit-row{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:28px;
+    padding:28px 0;
+    border-bottom:1px solid var(--panel-line);
+  }
+  @media(max-width:640px){
+    .credit-row{grid-template-columns:1fr; gap:10px;}
+  }
+  .credit-row:first-of-type{border-top:1px solid var(--panel-line);}
+  .credit-org{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:20px;
+    color:var(--brass-bright);
+  }
+  .credit-role{
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:6px;
+  }
+  .credit-desc{color:#d9d0c1; font-size:16px; max-width:520px;}
+
+  /* ---------- MEDIA ---------- */
+  .media{border-top:1px solid var(--panel-line);}
+  .media-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  @media(max-width:720px){ .media-grid{grid-template-columns:1fr;} }
+  .media-card{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    padding:22px;
+  }
+  .media-card h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:20px;
+    margin-bottom:14px;
+  }
+  .video-frame{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    background:#000;
+    overflow:hidden;
+    border:1px solid var(--panel-line);
+  }
+  .video-frame iframe, .video-frame video{
+    position:absolute; top:0; left:0; width:100%; height:100%; border:0; object-fit:cover; background:#000;
+  }
+  .reel-link{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    min-height:180px;
+    gap:14px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 20px;
+    border:1px solid var(--brass);
+    color:var(--brass-bright);
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .btn:hover{background:var(--brass); color:var(--ink);}
+
+  /* ---------- VOICE OVER / waveform signature ---------- */
+  .voice{border-top:1px solid var(--panel-line);}
+  .voice-panel{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    padding:36px;
+    display:flex;
+    align-items:center;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .wave{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    height:64px;
+    flex:1;
+    min-width:220px;
+  }
+  .wave i{
+    display:block;
+    width:4px;
+    background:linear-gradient(to top, var(--cognac), var(--brass-bright));
+    border-radius:2px;
+    animation:bounce 1.4s ease-in-out infinite;
+  }
+  @keyframes bounce{
+    0%,100%{transform:scaleY(0.25);}
+    50%{transform:scaleY(1);}
+  }
+  audio{width:100%; margin-top:20px; accent-color:var(--brass);}
+  .voice-caption{color:var(--muted); font-size:13px; letter-spacing:0.06em; text-transform:uppercase; margin-top:18px;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{border-top:1px solid var(--panel-line);}
+  .testimonial-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .testimonial-card{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    padding:32px 36px;
+    position:relative;
+  }
+  .testimonial-mark{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--brass);
+    font-size:40px;
+    line-height:1;
+    display:block;
+    margin-bottom:8px;
+  }
+  .testimonial-quote{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:500;
+    color:#e8e1d3;
+    line-height:1.55;
+    max-width:760px;
+  }
+  .testimonial-attr{
+    margin-top:20px;
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .testimonial-attr span{color:var(--brass-bright);}
+  .testimonial-photo{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid var(--brass);
+    flex-shrink:0;
+  }
+
+  /* ---------- OFFER ---------- */
+  .offer{border-top:1px solid var(--panel-line);}
+  .offer-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border-top:1px solid var(--panel-line);
+    border-left:1px solid var(--panel-line);
+  }
+  @media(max-width:720px){ .offer-grid{grid-template-columns:1fr;} }
+  .offer-item{
+    padding:28px 30px;
+    border-right:1px solid var(--panel-line);
+    border-bottom:1px solid var(--panel-line);
+    font-family:'Fraunces', serif;
+    font-size:19px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{border-top:1px solid var(--panel-line); text-align:left;}
+  .contact h2{margin-bottom:20px;}
+  .contact-list{display:flex; flex-direction:column; gap:10px; font-size:19px;}
+  .contact-list a{text-decoration:none; color:var(--brass-bright); border-bottom:1px solid transparent;}
+  .contact-list a:hover{border-bottom-color:var(--brass-bright);}
+  footer{
+    padding:40px 0 60px;
+    color:var(--muted);
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    border-top:1px solid var(--panel-line);
+  }
+
+  @media(max-width:640px){
+    section{padding:56px 0;}
+    .wrap{padding:0 20px;}
+    .section-head{margin-bottom:28px;}
+    .testimonial-card{padding:24px 22px;}
+    .offer-item{padding:22px 20px; font-size:17px;}
+    .voice-panel{padding:24px; gap:20px;}
+    .credit-desc{max-width:100%;}
+    .about p{font-size:16px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .spotlight, .wave i{animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="spotlight"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow">Los Angeles</div>
+        <h1>Herve<br>Clermont</h1>
+        <div class="hero-role">Actor · Voice Over Artist · Public Speaker · Brand Ambassador · Host</div>
+        <div class="hero-meta">
+          <div><span>25+</span>years on camera &amp; on stage</div>
+          <div><span>Rémy Martin</span>national training ambassador</div>
+          <div><span>Cintas</span>on-camera spokesman</div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="headshot.jpg" alt="Herve Clermont headshot">
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section class="about" id="about">
+      <div class="section-head">
+        <span class="section-num">About</span>
+        <div class="wave-rule" aria-hidden="true">
+          <i style="height:6px"></i><i style="height:14px"></i><i style="height:9px"></i><i style="height:18px"></i><i style="height:5px"></i>
+        </div>
+      </div>
+      <p>Twenty-five-plus years as a professional actor and voice-over artist, paired with real experience commanding rooms for major brands — from training new hires nationwide to presenting product valuations to financial firms. Comfortable on camera, on stage, behind the mic, and in front of a live crowd of any size.</p>
+    </section>
+
+    <section class="credits" id="highlights">
+      <div class="section-head">
+        <h2>Highlights</h2>
+      </div>
+
+      <div class="credit-row">
+        <div>
+          <div class="credit-org">Rémy Martin</div>
+          <div class="credit-role">National Training Ambassador, 8 Years</div>
+        </div>
+        <div class="credit-desc">Trained new hires nationwide on product knowledge, educated public audiences on cognac culture and craft, conducted staff training at Caribbean resorts, and presented on Rémy Martin product valuations to financial firms.</div>
+      </div>
+
+      <div class="credit-row">
+        <div>
+          <div class="credit-org">BMW × VH1</div>
+          <div class="credit-role">Artist Tour Host &amp; Brand Presenter, 1 Year</div>
+        </div>
+        <div class="credit-desc">Hosted BMW's multi-city artist tour benefiting VH1's Save the Music Program, helping raise funds for after-school programs that had lost access to musical equipment and teachers. Also served as brand presenter for tour sponsors BMW and Harman Kardon, speaking to audiences about BMW's Ultimate Driving Machine experience and the premium sound systems featured in BMW vehicles, as the tour engaged diverse crowds and media city after city.</div>
+      </div>
+
+      <div class="credit-row">
+        <div>
+          <div class="credit-org">Cintas</div>
+          <div class="credit-role">Spokesman, 7 Years</div>
+        </div>
+        <div class="credit-desc">On-camera spokesman across national commercial campaigns, roughly 30 radio commercials, in-house industrial videos, and print work.</div>
+      </div>
+
+      <div class="credit-row">
+        <div>
+          <div class="credit-org">Celebville360</div>
+          <div class="credit-role">On-Camera Host</div>
+        </div>
+        <div class="credit-desc">Shared celebrity news and conducted interviews with actors as the show's on-camera host, consistently recognized as the strongest host on the show.</div>
+      </div>
+
+      <div class="credit-row">
+        <div>
+          <div class="credit-org">Comcast Xfinity &amp; AARP</div>
+          <div class="credit-role">Voice &amp; On-Camera Talent, National Campaigns</div>
+        </div>
+        <div class="credit-desc">Featured voice and on-camera talent for national campaign work with top-tier brands including Comcast Xfinity and AARP, delivering performances producers trust for high-stakes, no-margin-for-error work.</div>
+      </div>
+
+      <div class="credit-row">
+        <div>
+          <div class="credit-org">Screen &amp; Stage</div>
+          <div class="credit-role">Professional Actor, 25+ Years</div>
+        </div>
+        <div class="credit-desc">Film and television credits, live theater, and voice over work across a two-decade career.</div>
+      </div>
+    </section>
+
+    <section class="media" id="reel">
+      <div class="section-head">
+        <h2>Reel</h2>
+      </div>
+      <div class="media-grid">
+        <div class="media-card">
+          <h3>Acting Reel</h3>
+          <div class="video-frame">
+            <video controls preload="metadata" poster="headshot.jpg" src="acting-reel.mp4"></video>
+          </div>
+          <p style="color:#93876f; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; margin-top:14px;">
+            Also hosted at <a href="https://reeltoday.com/herve-clermont/reel" target="_blank" rel="noopener" style="color:var(--brass-bright); border-bottom:1px solid transparent;">reeltoday.com ↗</a>
+          </p>
+        </div>
+        <div class="media-card">
+          <h3>Cintas Commercial</h3>
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/oIpB2gXD0G4" title="Cintas Commercial featuring Herve Clermont" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="media-card">
+          <h3>Cintas Commercial II</h3>
+          <div class="video-frame">
+            <video controls preload="metadata" src="cintas-commercial-2.mp4"></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="voice" id="voiceover">
+      <div class="section-head">
+        <h2>Voice Over</h2>
+      </div>
+      <div class="voice-panel">
+        <div class="wave" aria-hidden="true">
+          <i style="height:40%; animation-delay:0s"></i>
+          <i style="height:70%; animation-delay:0.1s"></i>
+          <i style="height:30%; animation-delay:0.2s"></i>
+          <i style="height:90%; animation-delay:0.3s"></i>
+          <i style="height:55%; animation-delay:0.4s"></i>
+          <i style="height:80%; animation-delay:0.5s"></i>
+          <i style="height:35%; animation-delay:0.6s"></i>
+          <i style="height:65%; animation-delay:0.7s"></i>
+          <i style="height:45%; animation-delay:0.8s"></i>
+          <i style="height:75%; animation-delay:0.9s"></i>
+          <i style="height:50%; animation-delay:1.0s"></i>
+        </div>
+      </div>
+      <audio controls preload="none" src="voiceover-demo.mp3"></audio>
+      <div class="voice-caption">Voice Over Demo Reel</div>
+    </section>
+
+        <section class="testimonials" id="testimonials">
+      <div class="section-head">
+        <h2>In Their Words</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <span class="testimonial-mark">&ldquo;</span>
+          <p class="testimonial-quote">Having recruited, hired, and trained over 100 brand representatives and ambassadors in my 25 years of live event marketing, I can tell you that Herve Clermont is the best of the best. On the customer engagement side, he is personable, affable, and a gifted connector and communicator. Professionally speaking, he is always prepared, timely, and refreshingly has no diva complex. He invests in his own education about the brand and category he represents and makes his clients' needs his own. Over the years of working with him, I've received dozens of rave reviews about Herve from clients, trade partners, event attendees, and event staff alike.</p>
+          <div class="testimonial-attr"><span>Rick Kiley</span> · Founding Partner, SoHo Experiential</div>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-mark">&ldquo;</span>
+          <p class="testimonial-quote">Working with Herve is a luxury. He brings a rare mix of presence, kindness, and genuine connection that instantly draws a crowd — with humor and heart that puts everyone around him at ease. On stage, he's meticulous and magnetic; behind the scenes, he's a joy to work with, consistently delivering above and beyond. Any brand would be lucky to have him representing them.</p>
+          <div class="testimonial-attr"><img class="testimonial-photo" src="berly-ellis.jpg" alt="Berly Ellis-Wedding"><span>Berly Ellis-Wedding</span> · Founder, Urban Bohemia</div>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-mark">&ldquo;</span>
+          <p class="testimonial-quote">Hervé played an important role in my development during my time as a LOUIS XIII Brand Ambassador on the West Coast. Beyond his exceptional knowledge of the brand, he taught me how to truly deliver a story — how to use presence, eye contact, pacing, and confidence to connect with an audience. Hervé is an incredibly charismatic and engaging communicator, with a rare ability to bring out the best in others. His guidance had a lasting impact on the way I present, speak, and tell stories today.</p>
+          <div class="testimonial-attr"><span>Christophe Namer</span> · Former LOUIS XIII Brand Ambassador, West Coast</div>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-mark">&ldquo;</span>
+          <p class="testimonial-quote">In more than twenty years of producing national campaign work, I've put a lot of talent in front of a lot of high-stakes brands, and there's a very short list of people I call first. Herve Clermont has been at the top of it for the better part of a decade. He's been our voice on campaigns for Comcast Xfinity, AARP, and other top-tier clients — the kind of work where there's no margin for a missed deadline or a performance that only sort of lands. I've never had a worry or a concern. Not once. He arrives prepared, takes direction without ego, and consistently delivers performances that exceed what we scoped. Any brand that puts him in front of their audience is getting a professional who treats their name as carefully as they do.</p>
+          <div class="testimonial-attr"><img class="testimonial-photo" src="eric-rigaud.jpg" alt="Eric Rigaud"><span>Eric Rigaud</span> · CEO, Buoyant</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="offer" id="offer">
+      <div class="section-head">
+        <h2>What I Offer</h2>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-item">Corporate emcee &amp; event hosting</div>
+        <div class="offer-item">Brand ambassador / product education</div>
+        <div class="offer-item">Sales &amp; new-hire training facilitation</div>
+        <div class="offer-item">Nonprofit &amp; fundraising event hosting</div>
+        <div class="offer-item">Voice over &amp; on-camera brand work</div>
+        <div class="offer-item">Public speaking &amp; live presentations</div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p style="font-family:'Fraunces', serif; font-style:italic; font-size:19px; color:var(--brass-bright); margin-bottom:14px;">Available for bookings — let's talk about your next event, campaign, or brand activation.</p>
+      <h2>Get in Touch</h2>
+      <div class="contact-list">
+        <a href="mailto:Hervec19@gmail.com">Hervec19@gmail.com</a>
+        <a href="tel:+19172797008">917-279-7008</a>
+        <span style="color:var(--muted)">Los Angeles, CA</span>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="wrap">Herve Clermont — Actor · Speaker · Brand Ambassador · Host</div>
+  </footer>
+
+</body>
+</html>
